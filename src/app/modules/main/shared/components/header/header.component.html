@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+    <span>POC Front</span>
+    <span class="example-spacer"></span>
+    <a mat-button href="https://github.com/rodrigo-campero" target="_blank">
+        <mat-icon>fingerprint</mat-icon>
+    </a>
+    <button mat-button [matMenuTriggerFor]="options">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #options="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="client">Client</button>
+        <button mat-menu-item [matMenuTriggerFor]="employee">Employee</button>
+    </mat-menu>
+
+    <mat-menu #client="matMenu">
+        <button mat-menu-item tabRouterLink navigateFor="client-add-edit">Add</button>
+        <button mat-menu-item tabRouterLink navigateFor="client-add-edit">List</button>
+    </mat-menu>
+
+    <mat-menu #employee="matMenu">
+        <button mat-menu-item tabRouterLink navigateFor="employee-add-edit">Add</button>
+        <button mat-menu-item tabRouterLink navigateFor="employee-list">List</button>
+    </mat-menu>
+</mat-toolbar>
