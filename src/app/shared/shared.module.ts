@@ -7,21 +7,33 @@ import { TabContentComponent } from './components/tab-content/tab-content.compon
 import { ContentContainerDirective } from './directives/content-container.directive';
 import { TabRouterLinkDirective } from './directives/tab-router-link.directive';
 
+import { GoogleChartsModule } from 'angular-google-charts';
+import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
+import { AngularMaterialModule } from '../fw/angular-material/angular-material.module';
+
 
 @NgModule({
   declarations: [
     TabContentComponent,
     ContentContainerDirective,
-    TabRouterLinkDirective
+    TabRouterLinkDirective,
+    SpinnerOverlayComponent
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    AngularMaterialModule,
+    GoogleChartsModule.forRoot()
   ],
   exports: [
     TabContentComponent,
     ContentContainerDirective,
-    TabRouterLinkDirective
+    TabRouterLinkDirective,
+    GoogleChartsModule,
+    SpinnerOverlayComponent
+  ],
+  entryComponents: [
+    SpinnerOverlayComponent
   ]
 })
 export class SharedModule { }

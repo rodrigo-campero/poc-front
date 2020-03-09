@@ -8,6 +8,6 @@ export class AuthService {
   constructor() { }
 
   canActivate(path: string): boolean {
-    return false;
+    return true;
   }
 }
