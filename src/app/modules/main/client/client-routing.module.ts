@@ -1,15 +1,24 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AddEditComponent } from './pages/add-edit/add-edit.component';
-import { ListComponent } from './pages/list/list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-
+import { ListComponent } from './pages/list/list.component';
 
 export const routes: Routes = [
-  // { path: '', component: ListComponent },
-  { path: 'client-list', component: ListComponent },
-  { path: 'client-add-edit', component: AddEditComponent },
-  { path: 'client-dashboard', component: DashboardComponent },
+  {
+    path: 'client-list',
+    component: ListComponent,
+    data: { title: 'Client List', subtitle: 'Your Clients' }
+  },
+  {
+    path: 'client-add-edit',
+    component: AddEditComponent
+  },
+  {
+    path: 'client-dashboard',
+    component: DashboardComponent,
+    data: { title: 'Dashboard', subtitle: 'Your Dashboard' }
+  }
 ];
 
 @NgModule({

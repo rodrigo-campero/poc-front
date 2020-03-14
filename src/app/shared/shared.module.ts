@@ -4,20 +4,24 @@ import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
 
 import { TabContentComponent } from './components/tab-content/tab-content.component';
-import { ContentContainerDirective } from './directives/content-container.directive';
+import { DynamicTabContentDirective } from './directives/dynamic-tab-content.directive';
 import { TabRouterLinkDirective } from './directives/tab-router-link.directive';
 
 import { GoogleChartsModule } from 'angular-google-charts';
-import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
 import { AngularMaterialModule } from '../fw/angular-material/angular-material.module';
+import { TabComponent } from './components/tab/tab.component';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { DynamicTabsDirective } from './directives/dynamic-tabs.directive';
 
 
 @NgModule({
   declarations: [
+    TabsComponent,
+    TabComponent,
     TabContentComponent,
-    ContentContainerDirective,
-    TabRouterLinkDirective,
-    SpinnerOverlayComponent
+    DynamicTabsDirective,
+    DynamicTabContentDirective,
+    TabRouterLinkDirective
   ],
   imports: [
     CommonModule,
@@ -26,14 +30,18 @@ import { AngularMaterialModule } from '../fw/angular-material/angular-material.m
     GoogleChartsModule.forRoot()
   ],
   exports: [
+    TabsComponent,
+    TabComponent,
     TabContentComponent,
-    ContentContainerDirective,
+    DynamicTabsDirective,
+    DynamicTabContentDirective,
     TabRouterLinkDirective,
-    GoogleChartsModule,
-    SpinnerOverlayComponent
+    GoogleChartsModule
   ],
   entryComponents: [
-    SpinnerOverlayComponent
+    TabsComponent,
+    TabComponent,
+    TabContentComponent
   ]
 })
 export class SharedModule { }

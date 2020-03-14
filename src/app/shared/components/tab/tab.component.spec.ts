@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpinnerOverlayComponent } from './spinner-overlay.component';
+import { TabComponent } from './tab.component';
 
-describe('SpinnerOverlayComponent', () => {
-  let component: SpinnerOverlayComponent;
-  let fixture: ComponentFixture<SpinnerOverlayComponent>;
+describe('TabComponent', () => {
+  let component: TabComponent;
+  let fixture: ComponentFixture<TabComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpinnerOverlayComponent ]
+      declarations: [ TabComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpinnerOverlayComponent);
+    fixture = TestBed.createComponent(TabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

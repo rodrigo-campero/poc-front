@@ -14,13 +14,16 @@
     </mat-menu>
 
     <mat-menu #client="matMenu">
-        <button mat-menu-item tabRouterLink navigateFor="client-dashboard">Dashboard</button>
-        <button mat-menu-item tabRouterLink navigateFor="client-add-edit">Add</button>
-        <button mat-menu-item tabRouterLink navigateFor="client-add-edit">List</button>
+        <button mat-menu-item tabRouterLink tabPath="client-dashboard">Dashboard</button>
+        <button mat-menu-item tabRouterLink tabPath="client-add-edit" [tabData]="{ parent: 'Client Add' }"
+            tabTitle="Client Add Edit" tabSubtitle="Modify Clients">Add</button>
+        <button mat-menu-item tabRouterLink tabPath="client-list" [tabData]="{ parent: 'Client Edit' }">List</button>
     </mat-menu>
 
     <mat-menu #employee="matMenu">
-        <button mat-menu-item tabRouterLink navigateFor="employee-add-edit">Add</button>
-        <button mat-menu-item tabRouterLink navigateFor="employee-list">List</button>
+        <button mat-menu-item tabRouterLink tabPath="employee-add-edit"
+            tabData="{ parent: 'Employee Add' }">Add</button>
+        <button mat-menu-item tabRouterLink tabPath="employee-list"
+            [tabData]="{ parent: 'Employee List' }">List</button>
     </mat-menu>
 </mat-toolbar>

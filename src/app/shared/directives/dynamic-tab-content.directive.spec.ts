@@ -1,8 +1,8 @@
-import { ContentContainerDirective } from './content-container.directive';
+import { DynamicTabContentDirective } from './dynamic-tab-content.directive';
 
 describe('ContentContainerDirective', () => {
   it('should create an instance', () => {
-    const directive = new ContentContainerDirective();
+    const directive = new DynamicTabContentDirective();
     expect(directive).toBeTruthy();
   });
 });

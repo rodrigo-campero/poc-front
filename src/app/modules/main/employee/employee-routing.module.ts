@@ -1,13 +1,20 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AddEditComponent } from './pages/add-edit/add-edit.component';
 import { ListComponent } from './pages/list/list.component';
 
 
 export const routes: Routes = [
-  // { path: '', component: ListComponent },
-  { path: 'employee-list', component: ListComponent },
-  { path: 'employee-add-edit', component: AddEditComponent },
+  {
+    path: 'employee-list',
+    component: ListComponent,
+    data: { title: 'Employee List', subtitle: 'Your Employees' }
+  },
+  {
+    path: 'employee-add-edit',
+    component: AddEditComponent,
+    data: { title: 'Employee Add Edit', subtitle: 'Modify Employee' }
+  },
 ];
 
 @NgModule({

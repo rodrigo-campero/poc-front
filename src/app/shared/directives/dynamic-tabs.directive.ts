@@ -1,10 +1,8 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[content-container]'
+  selector: '[dynamic-tabs]'
 })
-export class ContentContainerDirective {
-
+export class DynamicTabsDirective {
   constructor(public viewContainerRef: ViewContainerRef) { }
-
 }

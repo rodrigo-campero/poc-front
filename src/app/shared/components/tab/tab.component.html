@@ -1,0 +1,6 @@
+<div [hidden]="!active" class="pane">
+    <ng-content></ng-content>
+    <ng-container *ngIf="component">
+        <app-tab-content [component]="component" [data]="data"></app-tab-content>
+    </ng-container>
+</div>
