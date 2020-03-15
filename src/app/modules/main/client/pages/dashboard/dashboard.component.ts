@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,45 +6,45 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  chart1Type: string = 'BarChart';
+  chart1Type = 'BarChart';
   chart1Data: any[] = [
-    ['London', 8136000],
-    ['New York', 8538000],
-    ['Paris', 2244000],
-    ['Berlin', 3470000],
-    ['Kairo', 19500000]
+    ['London', Math.round(Math.random() * 100000000)],
+    ['New York', Math.round(Math.random() * 100000000)],
+    ['Paris', Math.round(Math.random() * 100000000)],
+    ['Berlin', Math.round(Math.random() * 100000000)],
+    ['Kairo', Math.round(Math.random() * 100000000)]
   ];
-  chart2Type: string = 'PieChart';
+  chart2Type = 'PieChart';
   chart2Data: any[] = [
-    ['London', 8136000],
-    ['New York', 8538000],
-    ['Paris', 2244000],
-    ['Berlin', 3470000],
-    ['Kairo', 19500000]
+    ['London', Math.round(Math.random() * 100000000)],
+    ['New York', Math.round(Math.random() * 100000000)],
+    ['Paris', Math.round(Math.random() * 100000000)],
+    ['Berlin', Math.round(Math.random() * 100000000)],
+    ['Kairo', Math.round(Math.random() * 100000000)]
   ];
-  chart3Type: string = 'ColumnChart';
+  chart3Type = 'ColumnChart';
   chart3Data: any[] = [
-    ['London', 8136000],
-    ['New York', 8538000],
-    ['Paris', 2244000],
-    ['Berlin', 3470000],
-    ['Kairo', 19500000]
+    ['London', Math.round(Math.random() * 100000000)],
+    ['New York', Math.round(Math.random() * 100000000)],
+    ['Paris', Math.round(Math.random() * 100000000)],
+    ['Berlin', Math.round(Math.random() * 100000000)],
+    ['Kairo', Math.round(Math.random() * 100000000)]
   ];
-  chart4Type: string = 'AreaChart';
+  chart4Type = 'AreaChart';
   chart4Data: any[] = [
-    ['London', 8136000],
-    ['New York', 8538000],
-    ['Paris', 2244000],
-    ['Berlin', 3470000],
-    ['Kairo', 19500000]
+    ['London', Math.round(Math.random() * 100000000)],
+    ['New York', Math.round(Math.random() * 100000000)],
+    ['Paris', Math.round(Math.random() * 100000000)],
+    ['Berlin', Math.round(Math.random() * 100000000)],
+    ['Kairo', Math.round(Math.random() * 100000000)]
   ];
-  chart5Type: string = 'Bubblechart';
+  chart5Type = 'Bubblechart';
   chart5Data: any[] = [
-    ['London', 8136000],
-    ['New York', 8538000],
-    ['Paris', 2244000],
-    ['Berlin', 3470000],
-    ['Kairo', 19500000]
+    ['London', Math.round(Math.random() * 100000000)],
+    ['New York', Math.round(Math.random() * 100000000)],
+    ['Paris', Math.round(Math.random() * 100000000)],
+    ['Berlin', Math.round(Math.random() * 100000000)],
+    ['Kairo', Math.round(Math.random() * 100000000)]
   ];
 
   constructor() { }
