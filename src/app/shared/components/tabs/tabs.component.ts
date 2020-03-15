@@ -95,7 +95,9 @@ export class TabsComponent implements AfterContentInit {
         viewContainerRef.remove(i);
 
         // set tab index to 1st one
-        this.selectTab(this.tabs.first);
+        if (this.dynamicTabs.length || this.tabs.last) {
+          this.selectTab(this.dynamicTabs.length > 0 ? this.dynamicTabs[this.dynamicTabs.length - 1] : this.tabs.last);
+        }
         break;
       }
     }

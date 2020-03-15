@@ -10,7 +10,7 @@ export class TabRouterLinkDirective {
   @Input() tabData?: any;
   @Input() tabTitle?: string;
   @Input() tabSubtitle?: string;
-  @Input() tabIsCloseable = false;
+  @Input() tabIsCloseable = true;
 
   constructor(private tabService: TabService) { }
 

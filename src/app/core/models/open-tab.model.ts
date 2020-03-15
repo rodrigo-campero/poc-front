@@ -4,7 +4,7 @@ export class OpenTab {
     title?: string;
     subtitle?: string;
     isCloseable: boolean;
-    constructor(path: string, data?: any, title?: string, subtitle?: string, isCloseable: boolean = false) {
+    constructor(path: string, data?: any, title?: string, subtitle?: string, isCloseable: boolean = true) {
         this.path = path;
         this.data = data;
         this.title = title;

@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, ComponentFactoryResolver, ComponentRef, Type, OnChanges, AfterViewInit, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, ComponentRef, Input, OnChanges, OnDestroy, Type, ViewChild } from '@angular/core';
 import { DynamicTabContentDirective } from '../../directives/dynamic-tab-content.directive';
 
 @Component({
@@ -11,7 +11,7 @@ export class TabContentComponent implements OnChanges, AfterViewInit, OnDestroy 
   @Input() component: Type<Component>;
   @Input() data: any;
   componentRef: ComponentRef<Component>;
-  private isViewInitialized: boolean = false;
+  private isViewInitialized = false;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
@@ -20,12 +20,12 @@ export class TabContentComponent implements OnChanges, AfterViewInit, OnDestroy 
       return;
     }
     if (this.componentRef) {
-      // when the `type` input changes we destroy a previously 
+      // when the `type` input changes we destroy a previously
       // created component before creating the new one
       this.componentRef.destroy();
     }
 
-    let factory = this.componentFactoryResolver.resolveComponentFactory(this.component);
+    const factory = this.componentFactoryResolver.resolveComponentFactory(this.component);
     this.componentRef = this.target.viewContainerRef.createComponent(factory);
     // to access the created instance use
     (this.componentRef.instance as any).data = this.data;
@@ -43,6 +43,7 @@ export class TabContentComponent implements OnChanges, AfterViewInit, OnDestroy 
   }
 
   ngOnDestroy() {
+    console.log('ngOnDestroy:TabContentComponent');
     if (this.componentRef) {
       this.componentRef.destroy();
     }
