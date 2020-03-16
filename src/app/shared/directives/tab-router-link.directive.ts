@@ -18,15 +18,12 @@ export class TabRouterLinkDirective {
   clickEvent(event: { preventDefault: () => void; stopPropagation: () => void; }) {
     event.preventDefault();
     event.stopPropagation();
-    console.log(this.tabPath);
     this.addNewTab();
   }
 
   addNewTab() {
     if (this.tabPath) {
-      const tab = new OpenTab(this.tabPath, this.tabData, this.tabTitle, this.tabSubtitle, this.tabIsCloseable);
-      console.log(tab);
-      this.tabService.openTab(tab);
+      this.tabService.openTab(new OpenTab(this.tabPath, this.tabData, this.tabTitle, this.tabSubtitle, this.tabIsCloseable));
     }
   }
 }

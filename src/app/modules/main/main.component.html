@@ -1,13 +1,11 @@
 <app-header></app-header>
 <div class="container-fluid">
     <app-tabs>
-        <!-- <app-tab [tabTitle]="'People'">
-            <h3>List of People</h3>
-            <people-list [people]="people" (addPerson)="onAddPerson()" (editPerson)="onEditPerson($event)">
-            </people-list>
-            <hr />
-            <button class="btn btn-default" (click)="onOpenAbout()"><i class="glyphicon glyphicon-question-sign"></i>
-                About this</button>
-        </app-tab> -->
+        <app-tab tabTitle="Search now">
+            <app-search></app-search>
+        </app-tab>
+        <app-tab tabTitle="Search 1">
+            <app-search></app-search>
+        </app-tab>
     </app-tabs>
 </div>

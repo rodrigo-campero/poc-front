@@ -1,5 +1,11 @@
-.tab-close {
-  color: gray;
-  text-align: right;
-  cursor: pointer;
+.nav-tabs {
+  .nav-item {
+    margin-bottom: -1px;
+    cursor: pointer;
+  }
+  .tab-close {
+    color: gray;
+    text-align: right;
+    cursor: pointer;
+  }
 }

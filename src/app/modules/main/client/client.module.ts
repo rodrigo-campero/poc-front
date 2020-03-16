@@ -1,19 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import { AngularMaterialModule } from 'src/app/fw/angular-material/angular-material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { ClientRoutingModule } from './client-routing.module';
-import { ListComponent } from './pages/list/list.component';
 import { AddEditComponent } from './pages/add-edit/add-edit.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { AngularMaterialModule } from 'src/app/fw/angular-material/angular-material.module';
+import { ListComponent } from './pages/list/list.component';
+import { SearchComponent } from './pages/search/search.component';
+
 
 
 @NgModule({
   declarations: [
     ListComponent,
     AddEditComponent,
-    DashboardComponent
+    DashboardComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
@@ -21,10 +23,14 @@ import { AngularMaterialModule } from 'src/app/fw/angular-material/angular-mater
     SharedModule,
     AngularMaterialModule
   ],
+  exports: [
+    SearchComponent
+  ],
   entryComponents: [
     ListComponent,
     AddEditComponent,
-    DashboardComponent
+    DashboardComponent,
+    SearchComponent
   ]
 })
 export class ClientModule { }

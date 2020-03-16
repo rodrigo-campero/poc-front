@@ -3,8 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddEditComponent } from './pages/add-edit/add-edit.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ListComponent } from './pages/list/list.component';
+import { SearchComponent } from './pages/search/search.component';
 
 export const routes: Routes = [
+  {
+    path: 'client-search',
+    component: SearchComponent,
+    data: { title: 'Client Search', subtitle: 'Search Your Clients' }
+  },
   {
     path: 'client-list',
     component: ListComponent,
