@@ -20,16 +20,11 @@ export class TabContentComponent implements OnChanges, AfterViewInit, OnDestroy 
       return;
     }
     if (this.componentRef) {
-      // when the `type` input changes we destroy a previously
-      // created component before creating the new one
       this.componentRef.destroy();
     }
-
     const factory = this.componentFactoryResolver.resolveComponentFactory(this.component);
     this.componentRef = this.target.viewContainerRef.createComponent(factory);
-    // to access the created instance use
     (this.componentRef.instance as any).data = this.data;
-    // this.componentRef.instance.someOutput.subscribe(val => doSomething());
     this.componentRef.changeDetectorRef.detectChanges();
   }
 
@@ -43,7 +38,6 @@ export class TabContentComponent implements OnChanges, AfterViewInit, OnDestroy 
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy:TabContentComponent');
     if (this.componentRef) {
       this.componentRef.destroy();
     }

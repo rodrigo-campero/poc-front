@@ -2,7 +2,6 @@
     <li class="nav-item" *ngFor="let tab of fixedTabs; let i = index" (click)="selectFixedTab(i)">
         <a class="nav-link" [class.active]="tab.tabActive">{{ tab.tabTitle }}</a>
     </li>
-    <!-- dynamic tabs -->
     <li class="nav-item" *ngFor="let tab of dynamicTabs; let i = index" (click)="selectDynamicTab(i)">
         <a class="nav-link" [class.active]="tab.tabActive">{{ tab.tabTitle }}
             <span class="tab-close" *ngIf="tab.tabIsCloseable" (click)="closeTab(i)">x</span></a>

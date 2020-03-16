@@ -13,7 +13,7 @@ import { TabComponent } from '../tab/tab.component';
 export class TabsComponent implements AfterContentInit {
   dynamicTabs: TabComponent[] = [];
   @ContentChildren(TabComponent) fixedTabs: QueryList<TabComponent>;
-  @ViewChild(DynamicTabsDirective, { static: true }) dynamicTabPlaceholder: DynamicTabsDirective;
+  @ViewChild(DynamicTabsDirective, { static: true }) taget: DynamicTabsDirective;
   selectedTabIndex: number;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private tabService: TabService, private router: Router) { }
@@ -33,7 +33,7 @@ export class TabsComponent implements AfterContentInit {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
       TabComponent
     );
-    const viewContainerRef = this.dynamicTabPlaceholder.viewContainerRef;
+    const viewContainerRef = this.taget.viewContainerRef;
     const componentRef = viewContainerRef.createComponent(componentFactory);
     const tabRouter = this.router.config.filter(res => res.path === openTab.path)[0];
     const instance: TabComponent = componentRef.instance as TabComponent;
@@ -49,7 +49,6 @@ export class TabsComponent implements AfterContentInit {
   selectFixedTab(index: number) {
     this.deselectFixedTab();
     const newActive = this.fixedTabs.find((el, i, ar) => i === index);
-    console.log(newActive);
     if (newActive) {
       newActive.tabActive = true;
     }
@@ -84,7 +83,7 @@ export class TabsComponent implements AfterContentInit {
 
   closeTab(index: number) {
     this.dynamicTabs.splice(index, 1);
-    const viewContainerRef = this.dynamicTabPlaceholder.viewContainerRef;
+    const viewContainerRef = this.taget.viewContainerRef;
     viewContainerRef.remove(index);
     this.selectDynamicTab(this.dynamicTabs.length - 1);
   }
