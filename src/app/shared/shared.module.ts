@@ -1,17 +1,19 @@
-import { NgModule } from '@angular/core';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CommonModule } from '@angular/common';
-
-import { SharedRoutingModule } from './shared-routing.module';
-
-import { TabContentComponent } from './components/tab-content/tab-content.component';
-import { DynamicTabContentDirective } from './directives/dynamic-tab-content.directive';
-import { TabRouterLinkDirective } from './directives/tab-router-link.directive';
-
+import { NgModule } from '@angular/core';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { AngularMaterialModule } from '../fw/angular-material/angular-material.module';
+import { StepperComponent } from './components/stepper/stepper.component';
+import { TabContentComponent } from './components/tab-content/tab-content.component';
 import { TabComponent } from './components/tab/tab.component';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { DynamicTabContentDirective } from './directives/dynamic-tab-content.directive';
 import { DynamicTabsDirective } from './directives/dynamic-tabs.directive';
+import { TabRouterLinkDirective } from './directives/tab-router-link.directive';
+import { SharedRoutingModule } from './shared-routing.module';
+
+
+
 
 
 @NgModule({
@@ -21,12 +23,14 @@ import { DynamicTabsDirective } from './directives/dynamic-tabs.directive';
     TabContentComponent,
     DynamicTabsDirective,
     DynamicTabContentDirective,
-    TabRouterLinkDirective
+    TabRouterLinkDirective,
+    StepperComponent
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
     AngularMaterialModule,
+    CdkStepperModule,
     GoogleChartsModule.forRoot()
   ],
   exports: [
@@ -36,7 +40,9 @@ import { DynamicTabsDirective } from './directives/dynamic-tabs.directive';
     DynamicTabsDirective,
     DynamicTabContentDirective,
     TabRouterLinkDirective,
-    GoogleChartsModule
+    GoogleChartsModule,
+    CdkStepperModule,
+    StepperComponent
   ],
   entryComponents: [
     TabsComponent,

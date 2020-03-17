@@ -4,6 +4,7 @@ import { AddEditComponent } from './pages/add-edit/add-edit.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ListComponent } from './pages/list/list.component';
 import { SearchComponent } from './pages/search/search.component';
+import { MainComponent } from './pages/steps/main/main.component';
 
 export const routes: Routes = [
   {
@@ -24,6 +25,11 @@ export const routes: Routes = [
     path: 'client-dashboard',
     component: DashboardComponent,
     data: { title: 'Dashboard', subtitle: 'Your Dashboard' }
+  },
+  {
+    path: 'client-wizard',
+    component: MainComponent,
+    data: { title: 'Wizard', subtitle: 'Step By Step' }
   }
 ];
 

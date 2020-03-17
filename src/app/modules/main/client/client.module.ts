@@ -7,6 +7,11 @@ import { AddEditComponent } from './pages/add-edit/add-edit.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ListComponent } from './pages/list/list.component';
 import { SearchComponent } from './pages/search/search.component';
+import { Step1Component } from './pages/steps/step1/step1.component';
+import { Step2Component } from './pages/steps/step2/step2.component';
+import { Step3Component } from './pages/steps/step3/step3.component';
+import { Step4Component } from './pages/steps/step4/step4.component';
+import { MainComponent } from './pages/steps/main/main.component';
 
 
 
@@ -15,7 +20,12 @@ import { SearchComponent } from './pages/search/search.component';
     ListComponent,
     AddEditComponent,
     DashboardComponent,
-    SearchComponent
+    SearchComponent,
+    Step1Component,
+    Step2Component,
+    Step3Component,
+    Step4Component,
+    MainComponent
   ],
   imports: [
     CommonModule,

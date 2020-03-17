@@ -15,6 +15,7 @@
 
     <mat-menu #client="matMenu">
         <button mat-menu-item tabRouterLink tabPath="client-dashboard">Dashboard</button>
+        <button mat-menu-item tabRouterLink tabPath="client-wizard">Wizard</button>
         <button mat-menu-item tabRouterLink tabPath="client-add-edit" [tabData]="{ parent: 'Client Add' }"
             tabTitle="Client Add Edit" tabSubtitle="Modify Clients">Add</button>
         <button mat-menu-item tabRouterLink tabPath="client-list" [tabData]="{ parent: 'Client Edit' }">List</button>
