@@ -1,0 +1,7 @@
+<ng-select class="custom" [items]="items | async" bindLabel="text" [loading]="itemsLoading" loadingText="Carregando..."
+    notFoundText="Nenhum resultado encontrado" minTermLength="3" [typeahead]="input">
+    <ng-template ng-option-tmp let-item="item">
+        {{item.title}} <br />
+        <small>{{item.subtitle}}</small>
+    </ng-template>
+</ng-select>
