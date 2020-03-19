@@ -16,7 +16,11 @@ export class TabsComponent implements AfterContentInit {
   @ViewChild(DynamicTabsDirective, { static: true }) taget: DynamicTabsDirective;
   selectedTabIndex: number;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private tabService: TabService, private router: Router) { }
+  constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private tabService: TabService,
+    private router: Router
+  ) { }
 
   ngAfterContentInit() {
     this.tabService.sbOpenTab.subscribe(tab => {
@@ -35,7 +39,9 @@ export class TabsComponent implements AfterContentInit {
     );
     const viewContainerRef = this.taget.viewContainerRef;
     const componentRef = viewContainerRef.createComponent(componentFactory);
-    const tabRouter = this.router.config.filter(res => res.path === openTab.path)[0];
+    const tabRouter = this.router.config.filter(
+      res => res.path === openTab.path
+    )[0];
     const instance: TabComponent = componentRef.instance as TabComponent;
     instance.tabTitle = openTab.title || tabRouter.data.title;
     instance.tabSubtitle = openTab.subtitle || tabRouter.data.subtitle;
@@ -48,6 +54,7 @@ export class TabsComponent implements AfterContentInit {
 
   selectFixedTab(index: number) {
     this.deselectFixedTab();
+    this.deselectDynamicTab();
     const newActive = this.fixedTabs.find((el, i, ar) => i === index);
     if (newActive) {
       newActive.tabActive = true;
@@ -56,10 +63,7 @@ export class TabsComponent implements AfterContentInit {
   }
 
   deselectFixedTab() {
-    const currentActive = this.fixedTabs.find((el, i, ar) => i === this.selectedTabIndex);
-    if (currentActive) {
-      currentActive.tabActive = false;
-    }
+    this.fixedTabs.forEach(t => (t.tabActive = false));
   }
 
   selectDynamicTab(index: number) {

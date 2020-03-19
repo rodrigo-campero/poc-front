@@ -3,7 +3,7 @@ import { OpenTab } from 'src/app/core/models/open-tab.model';
 import { TabService } from 'src/app/core/services/tab.service';
 
 @Directive({
-  selector: '[tabRouterLink]'
+  selector: '[tab-router-link]'
 })
 export class TabRouterLinkDirective {
   @Input() tabPath: string;
