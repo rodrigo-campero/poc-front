@@ -11,6 +11,7 @@ import { TabComponent } from './components/tab/tab.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { DynamicTabContentDirective } from './directives/dynamic-tab-content.directive';
 import { DynamicTabsDirective } from './directives/dynamic-tabs.directive';
+import { ScrollToDirective } from './directives/scroll-to.directive';
 import { TabRouterLinkDirective } from './directives/tab-router-link.directive';
 import { SharedRoutingModule } from './shared-routing.module';
 
@@ -23,7 +24,8 @@ import { SharedRoutingModule } from './shared-routing.module';
     DynamicTabContentDirective,
     TabRouterLinkDirective,
     StepperComponent,
-    FindComponent
+    FindComponent,
+    ScrollToDirective
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { SharedRoutingModule } from './shared-routing.module';
     GoogleChartsModule,
     CdkStepperModule,
     StepperComponent,
-    FindComponent
+    FindComponent,
+    ScrollToDirective
   ],
   entryComponents: [
     TabsComponent,
