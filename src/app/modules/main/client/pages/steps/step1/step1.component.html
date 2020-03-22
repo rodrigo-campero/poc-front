@@ -1,1 +1,15 @@
-<p>step1 works!</p>
+<form [formGroup]="step1Form" (ngSubmit)="onSubmit(step1Form)">
+    <div class="form-group">
+        <label for="cpfCnpj">Cpf/Cnpj</label>
+        <input type="text" class="form-control" formControlName="cpfCnpj" name="cpfCnpj" id="cpfCnpj" [mask]="mask"
+            (input)="changed($event.target.value)">
+        <div class="invalid-feedback" *ngIf="step1FormSubmitAttempt && f.cpfCnpj.errors && f.cpfCnpj.errors.required">
+            Cpf/Cnpj é obrigatório.
+        </div>
+        <div class="invalid-feedback"
+            *ngIf="step1FormSubmitAttempt && f.cpfCnpj.errors && f.cpfCnpj.errors.cnpjNotValid">
+            Cpf/Cnpj inválido.
+        </div>
+    </div>
+    <button type="submit">Send</button>
+</form>
