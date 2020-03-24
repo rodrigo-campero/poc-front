@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ValidatorsExtensions } from 'src/app/core/validators/validators-extensions';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-step1',
@@ -8,25 +7,24 @@ import { ValidatorsExtensions } from 'src/app/core/validators/validators-extensi
   styleUrls: ['./step1.component.scss']
 })
 export class Step1Component implements OnInit {
-  step1Form: FormGroup;
+  @Input() form: FormGroup;
+
   step1FormSubmitAttempt = false;
   readonly CPF = 0;
   readonly CNPJ = 1;
   mask = '';
   maskType: number;
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.step1Form = this.fb.group({
-      cpfCnpj: ['', [Validators.required, ValidatorsExtensions.cpfCnpj]]
-    });
+    console.log(this.form);
     this.setMask(this.CPF);
   }
 
   get f() {
-    return this.step1Form.controls;
+    return this.form.controls;
   }
 
   changed(value: any) {
@@ -58,7 +56,7 @@ export class Step1Component implements OnInit {
   }
 
   reset() {
-    this.step1Form.reset();
+    this.form.reset();
     this.step1FormSubmitAttempt = false;
   }
 }

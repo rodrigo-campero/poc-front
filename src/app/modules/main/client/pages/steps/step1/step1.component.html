@@ -1,4 +1,4 @@
-<form [formGroup]="step1Form" (ngSubmit)="onSubmit(step1Form)">
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
     <div class="form-group">
         <label for="cpfCnpj">Cpf/Cnpj</label>
         <input type="text" class="form-control" formControlName="cpfCnpj" name="cpfCnpj" id="cpfCnpj" [mask]="mask"

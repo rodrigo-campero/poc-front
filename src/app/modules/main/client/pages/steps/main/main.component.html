@@ -1,9 +1,9 @@
 <h2>Stepper in non-linear mode with form</h2>
-<app-stepper>
-    <cdk-step>
-        <app-step1></app-step1>
+<app-stepper linear>
+    <cdk-step [stepControl]="firstFormGroup" label="1 step">
+        <app-step1 [form]="firstFormGroup"></app-step1>
     </cdk-step>
-    <cdk-step>
+    <cdk-step [stepControl]="secondFormGroup" label="2 step">
         <app-step2></app-step2>
     </cdk-step>
     <cdk-step>
