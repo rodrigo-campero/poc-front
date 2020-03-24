@@ -8,8 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class Step1Component implements OnInit {
   @Input() form: FormGroup;
-
-  step1FormSubmitAttempt = false;
+  formSubmitAttempt = false;
   readonly CPF = 0;
   readonly CNPJ = 1;
   mask = '';
@@ -36,7 +35,7 @@ export class Step1Component implements OnInit {
   }
 
   onSubmit(formGroup: FormGroup) {
-    this.step1FormSubmitAttempt = true;
+    this.formSubmitAttempt = true;
     if (formGroup.valid) {
       console.log(formGroup);
     }
@@ -57,6 +56,6 @@ export class Step1Component implements OnInit {
 
   reset() {
     this.form.reset();
-    this.step1FormSubmitAttempt = false;
+    this.formSubmitAttempt = false;
   }
 }

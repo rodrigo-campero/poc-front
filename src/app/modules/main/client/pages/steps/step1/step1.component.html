@@ -3,17 +3,14 @@
         <label for="cpfCnpj">Cpf/Cnpj</label>
         <input type="text" class="form-control" formControlName="cpfCnpj" name="cpfCnpj" id="cpfCnpj" [mask]="mask"
             (input)="changed($event.target.value)">
-        <div class="invalid-feedback" *ngIf="step1FormSubmitAttempt && f.cpfCnpj.errors && f.cpfCnpj.errors.required">
+        <div class="invalid-feedback" *ngIf="formSubmitAttempt && f.cpfCnpj.errors && f.cpfCnpj.errors.required">
             Cpf/Cnpj é obrigatório.
         </div>
-        <div class="invalid-feedback"
-            *ngIf="step1FormSubmitAttempt && f.cpfCnpj.errors && f.cpfCnpj.errors.cpfNotValid">
+        <div class="invalid-feedback" *ngIf="formSubmitAttempt && f.cpfCnpj.errors && f.cpfCnpj.errors.cpfNotValid">
             Cpf inválido.
         </div>
-        <div class="invalid-feedback"
-            *ngIf="step1FormSubmitAttempt && f.cpfCnpj.errors && f.cpfCnpj.errors.cnpjNotValid">
+        <div class="invalid-feedback" *ngIf="formSubmitAttempt && f.cpfCnpj.errors && f.cpfCnpj.errors.cnpjNotValid">
             Cnpj inválido.
         </div>
     </div>
-    <button type="submit">Send</button>
 </form>

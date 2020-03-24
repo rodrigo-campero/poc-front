@@ -17,5 +17,8 @@ export class MainComponent implements OnInit {
     this.firstFormGroup = this.fb.group({
       cpfCnpj: ['', [Validators.required, ValidatorsExtensions.cpfCnpj]]
     });
+    this.secondFormGroup = this.fb.group({
+      companyName: ['', [Validators.required]]
+    });
   }
 }

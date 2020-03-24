@@ -1,1 +1,10 @@
-<p>step2 works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    <div class="form-group">
+        <label for="companyName">Nome da empresa</label>
+        <input type="text" class="form-control" formControlName="companyName" name="companyName" id="companyName">
+        <div class="invalid-feedback"
+            *ngIf="formSubmitAttempt && f.companyName.errors && f.companyName.errors.required">
+            Nome da empresa é obrigatório.
+        </div>
+    </div>
+</form>

@@ -8,9 +8,13 @@
     </div>
 
     <footer class="step-navigation-bar">
-        <button class="nav-button" cdkStepperPrevious></button>
-        <button class="step" *ngFor="let step of _steps; let i = index;" [ngClass]="{'active': selectedIndex === i}"
+        <button mat-icon-button cdkStepperPrevious>
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-button *ngFor="let step of _steps; let i = index;" color="{{selectedIndex === i ? 'primary':''}}"
             (click)="onClick(i)">Step {{i + 1}}</button>
-        <button class="nav-button" cdkStepperNext></button>
+        <button mat-button cdkStepperNext>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
     </footer>
 </section>

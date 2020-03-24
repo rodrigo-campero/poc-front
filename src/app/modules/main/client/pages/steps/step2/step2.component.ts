@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-step2',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./step2.component.scss']
 })
 export class Step2Component implements OnInit {
+  @Input() form: FormGroup;
+  formSubmitAttempt = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSubmit(formGroup: FormGroup) {
+    this.formSubmitAttempt = true;
+    if (formGroup.valid) {
+      console.log(formGroup);
+    }
+  }
+
+  get f() {
+    return this.form.controls;
+  }
 }
