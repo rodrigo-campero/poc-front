@@ -1,40 +1,104 @@
-<div> <p>I am comp2 loaded by {{data.parent}}<p></div>
-    <div id="list" class="row">
- 
-        <div class="table-responsive col-md-12">
-            <table class="table table-striped" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr>
-                        <th>Proposta</th>
-                        <th>CodCliente</th>
-                        <th>Nome Cliente</th>
-                        <th>Data Proposta</th>
-                        <th class="actions">Ações</th>
-                     </tr>
-                </thead>
-                <tbody>
-     
-                    <tr>
-                        <td>1001</td>
-                        <td>00000022</td>
-                        <td>Cleber da Silva</td>
-                        <td>01/01/2015</td>
-                        <td class="actions">                                                        
-                            <button tab-router-link tabPath="client-wizard">Editar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1002</td>
-                        <td>00000023</td>
-                        <td>Falvio Oliveira</td>
-                        <td>01/01/2016</td>
-                        <td class="actions">                                                        
-                            <button tab-router-link tabPath="client-wizard">Editar</button>
-                        </td>
-                    </tr>
-     
-                </tbody>
-             </table>
-     
-         </div>
-     </div> <!-- /#list -->
+<div class="row">
+    <div class="col-sm-3">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">CodCliente</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Cliente</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Modalidade</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Situação</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Escolher...</option>
+                <option value="1">Entrada</option>
+                <option value="2">Em Andamento</option>
+                <option value="3">Aprovada</option>
+                <option value="4">Cancelada</option>
+                <option value="4">Reprovada</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Periodo Inicial</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                placeholder="MM/DD/YYYY">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Periodo Final</span>                
+            </div>
+            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                placeholder="MM/DD/YYYY">
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-primary " name="buscar" type="submit">Buscar</button>
+    </div>
+</div>
+
+<div id="list" class="row">
+    <div class="table-responsive col-md-12">
+        <table class="table table-sm" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome do cliente</th>
+                    <th>Valor</th>
+                    <th>Data de criação</th>
+                    <th>Situação</th>
+                    <th class="actions">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>1001</td>
+                    <td>Cleber da Silva</td>
+                    <td>22.300,03</td>                    
+                    <td>01/01/2015</td>
+                    <td>Entrada</td>
+                    <td class="actions">
+                        <button tab-router-link tabPath="client-wizard">Editar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1002</td>
+                    <td>Maria da Silva</td>
+                    <td>400.300,03</td>                    
+                    <td>01/01/2016</td>
+                    <td>Cancelada</td>
+                    <td class="actions">
+                        <button tab-router-link tabPath="client-wizard">Editar</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div> <!-- /#list -->
