@@ -6,6 +6,7 @@ import { Component, Input, Type } from '@angular/core';
   styleUrls: ['./tab.component.scss']
 })
 export class TabComponent {
+  @Input() path: string;
   @Input() tabTitle: string;
   @Input() tabSubtitle: string;
   @Input() tabActive: boolean;

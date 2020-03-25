@@ -24,7 +24,7 @@ export const routes: Routes = [
   {
     path: 'client-dashboard',
     component: DashboardComponent,
-    data: { title: 'Dashboard', subtitle: 'Your Dashboard' }
+    data: { title: 'Dashboard', subtitle: 'Your Dashboard', maximumTabLimit: 3 }
   },
   {
     path: 'client-wizard',

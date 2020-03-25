@@ -11,19 +11,27 @@ export class TabRouterLinkDirective {
   @Input() tabTitle?: string;
   @Input() tabSubtitle?: string;
   @Input() tabIsCloseable = true;
+  @Input() isExclusive = false;
 
   constructor(private tabService: TabService) { }
 
   @HostListener('click', ['$event'])
-  clickEvent(event: { preventDefault: () => void; stopPropagation: () => void; }) {
-    event.preventDefault();
-    event.stopPropagation();
+  clickEvent(e: Event) {
     this.addNewTab();
   }
 
   addNewTab() {
     if (this.tabPath) {
-      this.tabService.openTab(new OpenTab(this.tabPath, this.tabData, this.tabTitle, this.tabSubtitle, this.tabIsCloseable));
+      this.tabService.openTab(
+        new OpenTab(
+          this.tabPath,
+          this.tabData,
+          this.tabTitle,
+          this.tabSubtitle,
+          this.tabIsCloseable,
+          this.isExclusive
+        )
+      );
     }
   }
 }

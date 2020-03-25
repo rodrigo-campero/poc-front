@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, ComponentFactoryResolver, ContentChildren, QueryList, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { OpenTab } from 'src/app/core/models/open-tab.model';
 import { TabService } from 'src/app/core/services/tab.service';
 import { DynamicTabsDirective } from '../../directives/dynamic-tabs.directive';
@@ -15,6 +15,7 @@ export class TabsComponent implements AfterContentInit {
   @ContentChildren(TabComponent) fixedTabs: QueryList<TabComponent>;
   @ViewChild(DynamicTabsDirective, { static: true }) taget: DynamicTabsDirective;
   selectedTabIndex: number;
+  maximumTabLimit = 10;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -34,18 +35,56 @@ export class TabsComponent implements AfterContentInit {
   }
 
   openTab(openTab: OpenTab) {
+    if (openTab.isExclusive) {
+      let index = -1;
+      for (let i = 0; i < this.dynamicTabs.length; i++) {
+        const existingTab = this.dynamicTabs[i];
+        if (existingTab.path === openTab.path && existingTab.tabData === openTab.data) {
+          index = i;
+          break;
+        }
+      }
+      if (index >= 0) {
+        this.selectDynamicTab(index);
+        return;
+      }
+    }
+    let tabRoute: Route;
+    for (const route of this.router.config) {
+      if (route.path === openTab.path) {
+        tabRoute = route;
+        break;
+      }
+    }
+    if (!tabRoute) {
+      return;
+    }
+    if (this.dynamicTabs.length >= this.maximumTabLimit) { this.closeTabWithoutSelection(0); }
+    if (tabRoute.data && tabRoute.data.maximumTabLimit) {
+      let indexfirstRemove: number;
+      let countMaximumTabLimit = 0;
+      for (let i = 0; i < this.dynamicTabs.length; i++) {
+        const existingTab = this.dynamicTabs[i];
+        if (existingTab.path === openTab.path) {
+          if (indexfirstRemove === undefined) { indexfirstRemove = i; }
+          countMaximumTabLimit += 1;
+          if (countMaximumTabLimit >= tabRoute.data.maximumTabLimit) {
+            this.closeTabWithoutSelection(indexfirstRemove);
+            break;
+          }
+        }
+      }
+    }
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
       TabComponent
     );
     const viewContainerRef = this.taget.viewContainerRef;
     const componentRef = viewContainerRef.createComponent(componentFactory);
-    const tabRouter = this.router.config.filter(
-      res => res.path === openTab.path
-    )[0];
     const instance: TabComponent = componentRef.instance as TabComponent;
-    instance.tabTitle = openTab.title || tabRouter.data.title;
-    instance.tabSubtitle = openTab.subtitle || tabRouter.data.subtitle;
-    instance.tabComponent = tabRouter.component;
+    instance.path = openTab.path;
+    instance.tabTitle = openTab.title || tabRoute.data.title;
+    instance.tabSubtitle = openTab.subtitle || tabRoute.data.subtitle;
+    instance.tabComponent = tabRoute.component;
     instance.tabData = openTab.data;
     instance.tabIsCloseable = openTab.isCloseable;
     this.dynamicTabs.push(componentRef.instance as TabComponent);
@@ -83,6 +122,13 @@ export class TabsComponent implements AfterContentInit {
     if (currentActive) {
       currentActive.tabActive = false;
     }
+  }
+
+  closeTabWithoutSelection(index: number) {
+    this.dynamicTabs.splice(index, 1);
+    const viewContainerRef = this.taget.viewContainerRef;
+    viewContainerRef.remove(index);
+    this.selectedTabIndex = this.dynamicTabs.length - 1;
   }
 
   closeTab(index: number) {
