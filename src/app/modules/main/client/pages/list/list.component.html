@@ -14,7 +14,7 @@
             </div>
             <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
         </div>
-    </div>    
+    </div>
     <div class="col-sm-3">
         <div class="input-group input-group-sm mb-3">
             <div class="input-group-prepend">
@@ -42,7 +42,7 @@
     <div class="col-sm-3">
         <div class="input-group input-group-sm mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Periodo Final</span>                
+                <span class="input-group-text" id="inputGroup-sizing-sm">Periodo Final</span>
             </div>
             <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
                 placeholder="MM/DD/YYYY">
@@ -71,21 +71,23 @@
                 <tr>
                     <td>1001</td>
                     <td>Cleber da Silva</td>
-                    <td>22.300,03</td>                    
+                    <td>22.300,03</td>
                     <td>01/01/2015</td>
                     <td>Entrada</td>
                     <td class="actions">
-                        <button tab-router-link tabPath="client-wizard">Editar</button>
+                        <button tab-router-link tabPath="client-wizard" isExclusive="true" tabData="{id:1}"
+                            mat-raised-button color="primary">Editar</button>
                     </td>
                 </tr>
                 <tr>
                     <td>1002</td>
                     <td>Maria da Silva</td>
-                    <td>400.300,03</td>                    
+                    <td>400.300,03</td>
                     <td>01/01/2016</td>
                     <td>Cancelada</td>
                     <td class="actions">
-                        <button tab-router-link tabPath="client-wizard">Editar</button>
+                        <button tab-router-link tabPath="client-wizard" isExclusive="true" tabData="{id:2}"
+                            mat-raised-button color="primary">Editar</button>
                     </td>
                 </tr>
 
