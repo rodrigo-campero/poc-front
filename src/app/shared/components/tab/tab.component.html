@@ -1,6 +1,6 @@
 <div [hidden]="!tabActive" class="pane">
     <ng-content></ng-content>
     <ng-container *ngIf="tabComponent">
-        <app-tab-content [component]="tabComponent" [data]="tabData"></app-tab-content>
+        <app-tab-content [component]="tabComponent" [data]="tabData" [active]="tabActive"></app-tab-content>
     </ng-container>
 </div>

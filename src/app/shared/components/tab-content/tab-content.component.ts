@@ -10,6 +10,7 @@ export class TabContentComponent implements OnChanges, AfterViewInit, OnDestroy 
   @ViewChild(DynamicTabContentDirective, { static: true }) target: DynamicTabContentDirective;
   @Input() component: Type<Component>;
   @Input() data: any;
+  @Input() active: boolean;
   componentRef: ComponentRef<Component>;
   private isViewInitialized = false;
 
@@ -24,7 +25,10 @@ export class TabContentComponent implements OnChanges, AfterViewInit, OnDestroy 
     }
     const factory = this.componentFactoryResolver.resolveComponentFactory(this.component);
     this.componentRef = this.target.viewContainerRef.createComponent(factory);
-    (this.componentRef.instance as any).data = this.data;
+    const instance: any = this.componentRef.instance as any;
+    console.log(this.active);
+    instance.data = this.data;
+    instance.tabActive = this.active;
     this.componentRef.changeDetectorRef.detectChanges();
   }
 

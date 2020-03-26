@@ -1,22 +1,22 @@
 <mat-grid-list cols="2" rowHeight="2:1">
     <mat-grid-tile>
         <mat-card>
-            <google-chart [type]="chart1Type" [data]="chart1Data"></google-chart>
+            <google-chart [type]="chart1Type" [data]="chart1Data" *ngIf="tabActive"></google-chart>
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-card>
-            <google-chart [type]="chart2Type" [data]="chart2Data"></google-chart>
+            <google-chart [type]="chart2Type" [data]="chart2Data" *ngIf="tabActive"></google-chart>
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-card>
-            <google-chart [type]="chart3Type" [data]="chart3Data"></google-chart>
+            <google-chart [type]="chart3Type" [data]="chart3Data" *ngIf="tabActive"></google-chart>
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-card>
-            <google-chart [type]="chart4Type" [data]="chart4Data"></google-chart>
+            <google-chart [type]="chart4Type" [data]="chart4Data" *ngIf="tabActive"></google-chart>
         </mat-card>
     </mat-grid-tile>
 </mat-grid-list>
