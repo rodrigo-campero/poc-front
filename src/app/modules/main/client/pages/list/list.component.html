@@ -31,22 +31,20 @@
         </div>
     </div>
     <div class="col-sm-3">
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Periodo Inicial</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
-                placeholder="MM/DD/YYYY">
-        </div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Periodo Inicial</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="inicial">
+            <mat-datepicker-toggle matSuffix [for]="inicial"></mat-datepicker-toggle>
+            <mat-datepicker #inicial></mat-datepicker>
+        </mat-form-field>
     </div>
     <div class="col-sm-3">
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Periodo Final</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
-                placeholder="MM/DD/YYYY">
-        </div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Periodo Final</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="final">
+            <mat-datepicker-toggle matSuffix [for]="final"></mat-datepicker-toggle>
+            <mat-datepicker #final></mat-datepicker>
+        </mat-form-field>
     </div>
     <div class="col-sm-2">
         <button class="btn btn-primary " name="buscar" type="submit">Buscar</button>

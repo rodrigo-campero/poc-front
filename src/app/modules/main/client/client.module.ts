@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule,  LOCALE_ID  } from '@angular/core';
 import { AngularMaterialModule } from 'src/app/fw/angular-material/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ClientRoutingModule } from './client-routing.module';
@@ -12,8 +12,8 @@ import { Step2Component } from './pages/steps/step2/step2.component';
 import { Step3Component } from './pages/steps/step3/step3.component';
 import { Step4Component } from './pages/steps/step4/step4.component';
 import { MainComponent } from './pages/steps/main/main.component';
-
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,22 +25,26 @@ import { MainComponent } from './pages/steps/main/main.component';
     Step2Component,
     Step3Component,
     Step4Component,
-    MainComponent
+    MainComponent    
   ],
   imports: [
     CommonModule,
     ClientRoutingModule,
     SharedModule,
-    AngularMaterialModule
+    AngularMaterialModule,    
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule     
   ],
   exports: [
-    SearchComponent
+    SearchComponent    
   ],
   entryComponents: [
     ListComponent,
     AddEditComponent,
     DashboardComponent,
-    SearchComponent
-  ]
+    SearchComponent    
+  ], providers: [    {provide: LOCALE_ID,      useValue: 'pt-BR'    }  ]
 })
 export class ClientModule { }
