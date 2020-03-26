@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IMyDateModel, IAngularMyDpOptions } from 'angular-mydatepicker/public-api';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
@@ -8,18 +10,30 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ListComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
+  
+  public myDatePickerOptions: IAngularMyDpOptions = {
+    dateRange: false,
+    dateFormat: 'dd/mm/yyyy'
+  };
 
 
   @Input() data;
   router: any;
+  public disabled: boolean = false;
 
-  constructor() { 
-    const currentYear = new Date().getFullYear();
-    this.minDate = new Date(currentYear - 20, 0, 1);
-    this.maxDate = new Date(currentYear + 1, 11, 31);    
+  public myForm: FormGroup;
+  
+  constructor( private formBuilder: FormBuilder) {      
   }
 
-  ngOnInit() {    
+  ngOnInit() { 
+    let d: Date = new Date();
+    d.setDate(d.getDate() + 2);
+    let model: IMyDateModel = {isRange: false, singleDate: {jsDate: d}, dateRange: null};
+
+    this.myForm = this.formBuilder.group({
+      myDate: [model,"" ]   
+    });   
   }
  
   

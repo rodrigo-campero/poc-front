@@ -12,8 +12,7 @@ import { Step2Component } from './pages/steps/step2/step2.component';
 import { Step3Component } from './pages/steps/step3/step3.component';
 import { Step4Component } from './pages/steps/step4/step4.component';
 import { MainComponent } from './pages/steps/main/main.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { AngularMyDatePickerModule } from 'angular-mydatepicker';
 
 @NgModule({
   declarations: [
@@ -31,11 +30,8 @@ import { MatNativeDateModule, MatFormFieldModule, MatInputModule } from '@angula
     CommonModule,
     ClientRoutingModule,
     SharedModule,
-    AngularMaterialModule,    
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule     
+    AngularMaterialModule,        
+    AngularMyDatePickerModule
   ],
   exports: [
     SearchComponent    

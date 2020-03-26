@@ -23,6 +23,7 @@
     "@angular/router": "~8.2.14",
     "@ng-select/ng-select": "^3.7.3",
     "angular-google-charts": "^0.1.6",
+    "angular-mydatepicker": "^0.5.2",
     "bootstrap": "^4.4.1",
     "hammerjs": "^2.0.8",
     "ngx-mask": "^8.1.7",

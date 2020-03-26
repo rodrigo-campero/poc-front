@@ -1,96 +1,112 @@
-<div class="row">
-    <div class="col-sm-3">
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">CodCliente</span>
+<form class="form" [formGroup]="myForm" novalidate>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">CodCliente</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
             </div>
-            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Cliente</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Situação</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Escolher...</option>
+                    <option value="1">Entrada</option>
+                    <option value="2">Em Andamento</option>
+                    <option value="3">Aprovada</option>
+                    <option value="4">Cancelada</option>
+                    <option value="4">Reprovada</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Período Inicial</span>
+                </div>
+                <input class="form-control" placeholder="Select a date" angular-mydatepicker name="reactiveFormsDate"
+                    formControlName="myDate" [options]="myDatePickerOptions" #inicial="angular-mydatepicker"
+                    autocomplete="off" />
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="inicial.toggleCalendar()">
+                        <i class="fa fa-calendar-o"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Período Final</span>
+                </div>
+                <input class="form-control" placeholder="Select a date" angular-mydatepicker name="reactiveFormsDate"
+                    formControlName="myDate" [options]="myDatePickerOptions" #final="angular-mydatepicker"
+                    autocomplete="off" />
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="final.toggleCalendar()">
+                        <i class="fa fa-calendar-o"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-primary" name="buscar" type="submit">Buscar</button>            
         </div>
     </div>
-    <div class="col-sm-4">
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Cliente</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+
+    <div id="list" class="row">
+        <div class="table-responsive col-md-12">
+            <table class="table table-sm" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome do cliente</th>
+                        <th>Valor</th>
+                        <th>Data de criação</th>
+                        <th>Situação</th>
+                        <th class="actions">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>1001</td>
+                        <td>Cleber da Silva</td>
+                        <td>22.300,03</td>
+                        <td>01/01/2015</td>
+                        <td>Entrada</td>
+                        <td class="actions">
+                            <button tab-router-link tabPath="client-wizard" isExclusive="true" tabData="{id:1}"
+                                mat-raised-button color="primary">Editar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>Maria da Silva</td>
+                        <td>400.300,03</td>
+                        <td>01/01/2016</td>
+                        <td>Cancelada</td>
+                        <td class="actions">
+                            <button tab-router-link tabPath="client-wizard" isExclusive="true" tabData="{id:2}"
+                                mat-raised-button color="primary">Editar</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
         </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">Situação</label>
-            </div>
-            <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Escolher...</option>
-                <option value="1">Entrada</option>
-                <option value="2">Em Andamento</option>
-                <option value="3">Aprovada</option>
-                <option value="4">Cancelada</option>
-                <option value="4">Reprovada</option>
-            </select>
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <mat-form-field class="example-full-width">
-            <mat-label>Periodo Inicial</mat-label>
-            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="inicial">
-            <mat-datepicker-toggle matSuffix [for]="inicial"></mat-datepicker-toggle>
-            <mat-datepicker #inicial></mat-datepicker>
-        </mat-form-field>
-    </div>
-    <div class="col-sm-3">
-        <mat-form-field class="example-full-width">
-            <mat-label>Periodo Final</mat-label>
-            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="final">
-            <mat-datepicker-toggle matSuffix [for]="final"></mat-datepicker-toggle>
-            <mat-datepicker #final></mat-datepicker>
-        </mat-form-field>
-    </div>
-    <div class="col-sm-2">
-        <button class="btn btn-primary " name="buscar" type="submit">Buscar</button>
-    </div>
-</div>
-
-<div id="list" class="row">
-    <div class="table-responsive col-md-12">
-        <table class="table table-sm" cellspacing="0" cellpadding="0">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Nome do cliente</th>
-                    <th>Valor</th>
-                    <th>Data de criação</th>
-                    <th>Situação</th>
-                    <th class="actions">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr>
-                    <td>1001</td>
-                    <td>Cleber da Silva</td>
-                    <td>22.300,03</td>
-                    <td>01/01/2015</td>
-                    <td>Entrada</td>
-                    <td class="actions">
-                        <button tab-router-link tabPath="client-wizard" isExclusive="true" tabData="{id:1}"
-                            mat-raised-button color="primary">Editar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1002</td>
-                    <td>Maria da Silva</td>
-                    <td>400.300,03</td>
-                    <td>01/01/2016</td>
-                    <td>Cancelada</td>
-                    <td class="actions">
-                        <button tab-router-link tabPath="client-wizard" isExclusive="true" tabData="{id:2}"
-                            mat-raised-button color="primary">Editar</button>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-
-    </div>
-</div> <!-- /#list -->
+    </div> <!-- /#list -->
+</form>
