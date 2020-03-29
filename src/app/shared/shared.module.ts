@@ -19,7 +19,7 @@ import { TabRouterLinkDirective } from './directives/tab-router-link.directive';
 import { SharedRoutingModule } from './shared-routing.module';
 
 
-export let options: Partial<IConfig> | (() => Partial<IConfig>);
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CryptoService } from 'src/app/core/services/crypto.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -49,8 +50,13 @@ export class DashboardComponent implements OnInit {
 
   @Input() tabActive: boolean;
 
-  constructor() { }
+  constructor(private cryptoService: CryptoService) { }
 
   ngOnInit() {
+    const plainText = 'pippo';
+    const encrypted = this.cryptoService.encryptUsingAES256(plainText);
+    console.log(encrypted);
+    const decrypted = this.cryptoService.decryptUsingAES256(encrypted);
+    console.log(decrypted);
   }
 }
