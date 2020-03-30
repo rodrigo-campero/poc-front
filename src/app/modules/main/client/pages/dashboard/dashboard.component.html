@@ -1,12 +1,14 @@
 <mat-grid-list cols="2" rowHeight="2:1">
     <mat-grid-tile>
-        <mat-card>
-            <google-chart [type]="chart1Type" [data]="chart1Data" *ngIf="tabActive"></google-chart>
+        <mat-card *ngIf="tabActive">
+            <google-chart [type]="chart1Type" [data]="chart1Data" *hasPermission="['can_write', 'can_read']; op 'OR'">
+            </google-chart>
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
-        <mat-card>
-            <google-chart [type]="chart2Type" [data]="chart2Data" *ngIf="tabActive"></google-chart>
+        <mat-card *ngIf="tabActive">
+            <google-chart [type]="chart2Type" [data]="chart2Data" *hasPermission="['can_write', 'can_read']">
+            </google-chart>
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>

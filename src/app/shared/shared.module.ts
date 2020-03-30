@@ -14,6 +14,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { BootstrapValidationCssDirective } from './directives/bootstrap-validation-css.directive';
 import { DynamicTabContentDirective } from './directives/dynamic-tab-content.directive';
 import { DynamicTabsDirective } from './directives/dynamic-tabs.directive';
+import { HasPermissionDirective } from './directives/has-permission.directive';
 import { ScrollToDirective } from './directives/scroll-to.directive';
 import { TabRouterLinkDirective } from './directives/tab-router-link.directive';
 import { SharedRoutingModule } from './shared-routing.module';
@@ -32,7 +33,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     StepperComponent,
     FindComponent,
     ScrollToDirective,
-    BootstrapValidationCssDirective
+    BootstrapValidationCssDirective,
+    HasPermissionDirective
   ],
   imports: [
     CommonModule,
@@ -58,7 +60,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     FindComponent,
     ScrollToDirective,
     NgxMaskModule,
-    BootstrapValidationCssDirective
+    BootstrapValidationCssDirective,
+    HasPermissionDirective
   ],
   entryComponents: [
     TabsComponent,
