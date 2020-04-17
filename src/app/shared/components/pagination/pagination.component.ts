@@ -9,10 +9,10 @@ import { paginate } from 'src/app/core/helpers/paginate';
 export class PaginationComponent implements OnInit, OnChanges {
   pagesSize: number[] = [10, 20, 30, 40, 50];
   @Input() totalItems: number;
-  @Output() changePage = new EventEmitter<any>(true);
   @Input() initialPage = 1;
   @Input() pageSize = 10;
   @Input() maxPages = 5;
+  @Output() changePage = new EventEmitter<any>(true);
 
   pager: any = {};
 
