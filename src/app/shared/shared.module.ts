@@ -7,6 +7,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AngularMaterialModule } from '../fw/angular-material/angular-material.module';
 import { FindComponent } from './components/find/find.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { TabContentComponent } from './components/tab-content/tab-content.component';
 import { TabComponent } from './components/tab/tab.component';
@@ -34,7 +35,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     FindComponent,
     ScrollToDirective,
     BootstrapValidationCssDirective,
-    HasPermissionDirective
+    HasPermissionDirective,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +63,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ScrollToDirective,
     NgxMaskModule,
     BootstrapValidationCssDirective,
-    HasPermissionDirective
+    HasPermissionDirective,
+    PaginationComponent
   ],
   entryComponents: [
     TabsComponent,
