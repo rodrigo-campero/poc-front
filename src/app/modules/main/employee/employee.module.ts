@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { AddEditComponent } from './pages/add-edit/add-edit.component';
 import { ListComponent } from './pages/list/list.component';
+
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ListComponent } from './pages/list/list.component';
   ],
   imports: [
     CommonModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,
+    SharedModule
   ],
   entryComponents: [
     ListComponent,

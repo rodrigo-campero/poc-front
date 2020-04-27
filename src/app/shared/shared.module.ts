@@ -8,6 +8,7 @@ import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AngularMaterialModule } from '../fw/angular-material/angular-material.module';
 import { FindComponent } from './components/find/find.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { ScrollingTabsComponent } from './components/scrolling-tabs/scrolling-tabs.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { TabContentComponent } from './components/tab-content/tab-content.component';
 import { TabComponent } from './components/tab/tab.component';
@@ -36,7 +37,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ScrollToDirective,
     BootstrapValidationCssDirective,
     HasPermissionDirective,
-    PaginationComponent
+    PaginationComponent,
+    ScrollingTabsComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     NgxMaskModule,
     BootstrapValidationCssDirective,
     HasPermissionDirective,
-    PaginationComponent
+    PaginationComponent,
+    ScrollingTabsComponent
   ],
   entryComponents: [
     TabsComponent,

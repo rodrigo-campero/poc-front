@@ -3,9 +3,48 @@
     margin-bottom: -1px;
     cursor: pointer;
   }
+
   .tab-close {
     color: gray;
     text-align: right;
     cursor: pointer;
   }
+}
+
+.wrapper {
+  overflow: hidden;
+  width: 95%;
+  margin: 0 auto;
+
+  .nav-justified {
+    display: flex;
+    flex-flow: row nowrap;
+
+    li {
+      flex: 1 auto;
+      text-align: center;
+      white-space: nowrap;
+    }
+  }
+}
+
+
+
+.nav-justified>.scroller {
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  padding: 7px;
+  padding-top: 11px;
+  white-space: no-wrap;
+  vertical-align: middle;
+  background-color: #fff;
+}
+
+.scroller-right {
+  float: right;
+}
+
+.scroller-left {
+  float: left;
 }

@@ -1,11 +1,17 @@
-<ul class="nav nav-tabs" style="margin-top: 10px;">
-    <li class="nav-item" *ngFor="let tab of fixedTabs; let i = index" (click)="selectFixedTab(i)">
-        <a class="nav-link" [class.active]="tab.tabActive">{{ tab.tabTitle }}</a>
-    </li>
-    <li class="nav-item" *ngFor="let tab of dynamicTabs; let i = index" (click)="selectDynamicTab(i)">
-        <a class="nav-link" [class.active]="tab.tabActive">{{ tab.tabTitle }}
-            <span class="tab-close" *ngIf="tab.tabIsCloseable" (click)="closeTab(i)">x</span></a>
-    </li>
-</ul>
+<div class="scroller scroller-left" (click)="scrollLeft()" *ngIf="showScrollerLeft"><i
+        class="material-icons">chevron_left</i></div>
+<div class="scroller scroller-right" (click)="scrollRight()" *ngIf="showScrollerRight"><i
+        class="material-icons">chevron_right</i></div>
+<div class="wrapper" #container>
+    <ul class="nav nav-tabs flex-nowrap list nav-justified" id="myTab" style="margin-top: 10px;">
+        <li class="nav-item" *ngFor="let tab of fixedTabs; let i = index" (click)="selectFixedTab(i)">
+            <a class="nav-link" [class.active]="tab.tabActive">{{ tab.tabTitle }}</a>
+        </li>
+        <li class="nav-item" *ngFor="let tab of dynamicTabs; let i = index" (click)="selectDynamicTab(i)">
+            <a class="nav-link" [class.active]="tab.tabActive">{{ tab.tabTitle }}
+                <span class="tab-close" *ngIf="tab.tabIsCloseable" (click)="closeTab(i)">x</span></a>
+        </li>
+    </ul>
+</div>
 <ng-content></ng-content>
 <ng-template dynamic-tabs></ng-template>

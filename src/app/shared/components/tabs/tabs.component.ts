@@ -1,5 +1,6 @@
-import { AfterContentInit, Component, ComponentFactoryResolver, ContentChildren, QueryList, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, ContentChildren, ElementRef, HostListener, QueryList, ViewChild } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { timer } from 'rxjs';
 import { OpenTab } from 'src/app/core/models/open-tab.model';
 import { TabService } from 'src/app/core/services/tab.service';
 import { DynamicTabsDirective } from '../../directives/dynamic-tabs.directive';
@@ -10,18 +11,67 @@ import { TabComponent } from '../tab/tab.component';
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss']
 })
-export class TabsComponent implements AfterContentInit {
+export class TabsComponent implements AfterContentInit, AfterViewInit {
   dynamicTabs: TabComponent[] = [];
   @ContentChildren(TabComponent) fixedTabs: QueryList<TabComponent>;
   @ViewChild(DynamicTabsDirective, { static: true }) taget: DynamicTabsDirective;
   selectedTabIndex: number;
-  maximumTabLimit = 10;
+  maximumTabLimit = 20;
+
+
+  @ViewChild('container', { static: false }) public el: ElementRef;
+  showScrollerRight = false;
+  showScrollerLeft = false;
+  range = 150;
+  left: number;
+  offsetWidth: number;
+  scrollWidth: number;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private tabService: TabService,
-    private router: Router
+    private router: Router,
+    private cdRef: ChangeDetectorRef
   ) { }
+
+  ngAfterViewInit() {
+    this.checkScroller();
+    this.cdRef.detectChanges();
+  }
+
+  checkScroller() {
+    this.left = this.el.nativeElement.scrollLeft;
+    this.offsetWidth = this.el.nativeElement.offsetWidth;
+    this.scrollWidth = this.el.nativeElement.scrollWidth;
+    this.showScrollerLeft = !(this.left <= this.range / 5);
+    this.showScrollerRight = !(this.left + this.range > this.scrollWidth - this.offsetWidth - 1);
+    console.log(this.left);
+  }
+
+  @HostListener('window:scroll', ['$event']) onScroll($event) {
+    console.log($event);
+  }
+
+  public scrollRight(): void {
+    // console.log(this.el.nativeElement.offsetWidth);
+    // console.log(this.el.nativeElement.scrollWidth);
+    // console.log(this.el.nativeElement.scrollLeft);
+    // this.left = this.el.nativeElement.scrollLeft = this.left = this.el.nativeElement.scrollLeft + this.range;
+    this.el.nativeElement.scrollTo({ left: (this.el.nativeElement.scrollLeft + this.range), behavior: 'smooth' });
+    timer(100).subscribe(() => {
+      this.checkScroller();
+    });
+  }
+
+  public scrollLeft(): void {
+    // console.log(this.el.nativeElement.offsetWidth);
+    // console.log(this.el.nativeElement.scrollWidth);
+    // console.log(this.el.nativeElement.scrollLeft);
+    this.el.nativeElement.scrollTo({ left: (this.el.nativeElement.scrollLeft - this.range), behavior: 'smooth' });
+    timer(100).subscribe(() => {
+      this.checkScroller();
+    });
+  }
 
   ngAfterContentInit() {
     this.tabService.sbOpenTab.subscribe(tab => {
