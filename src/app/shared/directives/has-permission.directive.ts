@@ -54,7 +54,6 @@ export class HasPermissionDirective implements OnInit {
 
   private checkPermission() {
     if (this.currentPermissions) {
-      console.log(this.permissions);
       if (this.logicalOp === 'OR') {
         return this.permissions.some((permission) => this.existPermission(permission));
       } else {

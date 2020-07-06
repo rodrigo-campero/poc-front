@@ -32,7 +32,6 @@ export class TabContentComponent implements OnChanges, AfterViewInit, OnDestroy 
     this.componentRef = this.target.viewContainerRef.createComponent(factory);
     const instance: any = this.componentRef.instance as any;
     instance.data = this.data;
-    console.log(this.active);
     of(this.active).pipe(
       delay(1000),
       takeUntil(this.destroy$)

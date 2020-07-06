@@ -45,11 +45,9 @@ export class TabsComponent implements AfterContentInit, AfterViewInit {
     this.scrollWidth = this.el.nativeElement.scrollWidth;
     this.showScrollerLeft = !(this.left <= this.range / 5);
     this.showScrollerRight = !(this.left + this.range > this.scrollWidth - this.offsetWidth - 1);
-    console.log(this.left);
   }
 
   @HostListener('window:scroll', ['$event']) onScroll($event) {
-    console.log($event);
   }
 
   public scrollRight(): void {

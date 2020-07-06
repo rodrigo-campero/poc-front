@@ -13,6 +13,5 @@ export class ListComponent implements OnInit {
   }
 
   onChangePage(pager: any) {
-    console.log(pager);
   }
 }

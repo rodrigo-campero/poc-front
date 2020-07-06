@@ -13,6 +13,7 @@ import { Step3Component } from './pages/steps/step3/step3.component';
 import { Step4Component } from './pages/steps/step4/step4.component';
 import { MainComponent } from './pages/steps/main/main.component';
 import { AngularMyDatePickerModule } from 'angular-mydatepicker';
+import { ClientSidebarComponent } from './components/client-sidebar/client-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AngularMyDatePickerModule } from 'angular-mydatepicker';
     Step2Component,
     Step3Component,
     Step4Component,
-    MainComponent    
+    MainComponent,
+    ClientSidebarComponent    
   ],
   imports: [
     CommonModule,

@@ -18,7 +18,6 @@ export class Step2Component implements OnInit {
   onSubmit(formGroup: FormGroup) {
     this.formSubmitAttempt = true;
     if (formGroup.valid) {
-      console.log(formGroup);
     }
   }
 

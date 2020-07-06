@@ -1,0 +1,16 @@
+.submenu li {
+    padding-left: 15px;
+}
+
+ul li+.submenu {
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+ul li.active+.submenu {
+    transition: opacity 1s ease-in;
+    opacity: 1;
+    height: auto;
+}

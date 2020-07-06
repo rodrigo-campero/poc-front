@@ -55,8 +55,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     const plainText = 'pippo';
     const encrypted = this.cryptoService.encryptUsingAES256(plainText);
-    console.log(encrypted);
     const decrypted = this.cryptoService.decryptUsingAES256(encrypted);
-    console.log(decrypted);
   }
 }

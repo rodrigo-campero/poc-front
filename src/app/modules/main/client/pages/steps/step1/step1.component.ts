@@ -18,7 +18,6 @@ export class Step1Component implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.form);
     this.setMask(this.CPF);
   }
 
@@ -37,7 +36,6 @@ export class Step1Component implements OnInit {
   onSubmit(formGroup: FormGroup) {
     this.formSubmitAttempt = true;
     if (formGroup.valid) {
-      console.log(formGroup);
     }
   }
 
